@@ -12,7 +12,28 @@ const frameworks = [
   "Inferno"
 ];
 
-const students = ["A君", "B君", "C君", "D君", "E君", "F君", "G君", "H君"];
+const students = [
+  "A君",
+  "B君",
+  "C君",
+  "D君",
+  "E君",
+  "F君",
+  "G君",
+  "H君",
+  "F君",
+  "G君",
+  "H君",
+  "F君",
+  "G君",
+  "H君",
+  "F君",
+  "G君",
+  "H君",
+  "F君",
+  "G君",
+  "H君"
+];
 
 const favorite = {
   A君: {
@@ -106,11 +127,11 @@ const favorite = {
 };
 
 export const favEnum = {
-  "01": "好き",
-  "02": "ちょっと好き",
-  "03": "普通",
-  "04": "嫌い",
-  "05": "大っ嫌い"
+  "01": "秀",
+  "02": "優",
+  "03": "良",
+  "04": "可",
+  "05": "不可"
 };
 
 const data = { tableName, frameworks, students, favorite, favEnum };

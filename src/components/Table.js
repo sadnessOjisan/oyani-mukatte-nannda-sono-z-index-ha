@@ -15,8 +15,8 @@ const Table = props => {
 const _renderHeader = headerNodes => {
   return (
     <TableHeader>
-      {headerNodes.map(node => (
-        <Th>{node}</Th>
+      {headerNodes.map((node, idx) => (
+        <Th isFirst={idx === 0}>{node}</Th>
       ))}
     </TableHeader>
   );
@@ -47,12 +47,21 @@ const Th = styled.th`
   width: 180px;
   padding: 12px;
   background-color: ${lightgray};
+  position: sticky;
+  top: 0;
+  left: ${props =>
+    props.isFirst && 0}px; // これがないとスクロール時に横に流れる
+  z-index: ${props =>
+    props.isFirst &&
+    1}; // これがないとスクロールされる要素が上に重なり、固定しているように見えない
 `;
 
 const Td = styled.td`
   width: 180px;
   padding: 12px;
   background-color: ${props => props.isFirst && lightgray};
+  position: ${props => props.isFirst && "sticky"};
+  left: ${props => props.isFirst && 0}px;
 `;
 
 export default Table;

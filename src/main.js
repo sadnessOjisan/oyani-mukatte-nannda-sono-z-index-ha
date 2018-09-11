@@ -4,6 +4,7 @@ import ReactDOM from "react-dom";
 import Table from "./components/Table";
 import data from "./constants/tableData";
 import Text from "./components/Text";
+import { lightgray } from "./constants/color";
 import "../vendor/css/reset.css";
 
 class App extends React.Component {
@@ -22,7 +23,14 @@ class App extends React.Component {
   }
 
   render() {
-    return <Table headerNodes={this.headerItems} dataNodes={this.rowsItems} />;
+    return (
+      <Wrapper>
+        <Text size={24}>JavaScript 成績表</Text>
+        <TableViewr>
+          <Table headerNodes={this.headerItems} dataNodes={this.rowsItems} />
+        </TableViewr>
+      </Wrapper>
+    );
   }
 
   _constructHeaderNodes(tableName, headerItems) {
@@ -51,6 +59,23 @@ class App extends React.Component {
     ]);
   }
 }
+
+const Wrapper = styled.div`
+  width: 100%;
+  height: 100%;
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`;
+
+const TableViewr = styled.div`
+  width: 80%;
+  height: 600px;
+  margin-top: 24px;
+  border: solid 1px lightgray;
+  overflow: scroll;
+`;
 
 const HeaderNode = styled.div`
   width: 100%;
