@@ -3,8 +3,10 @@ import styled from "styled-components";
 import ReactDOM from "react-dom";
 import Table from "./components/Table";
 import data from "./constants/tableData";
+import Tooltip from "./components/Tooltip";
 import Text from "./components/Text";
 import { lightgray } from "./constants/color";
+import Modal from "./components/ModalPortal";
 import "../vendor/css/reset.css";
 
 class App extends React.Component {
@@ -29,6 +31,9 @@ class App extends React.Component {
         <TableViewr>
           <Table headerNodes={this.headerItems} dataNodes={this.rowsItems} />
         </TableViewr>
+        <Modal>
+          <Text>も〜だる　ちるどれん</Text>
+        </Modal>
       </Wrapper>
     );
   }
@@ -41,6 +46,7 @@ class App extends React.Component {
       ...headerItems.map(item => (
         <HeaderNode>
           <Text>{item}</Text>
+          <Tooltip>aaaaaaaaaaaaaa</Tooltip>
         </HeaderNode>
       ))
     ];
@@ -80,6 +86,12 @@ const TableViewr = styled.div`
 const HeaderNode = styled.div`
   width: 100%;
   height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  > * {
+    margin-right: 8px;
+  }
 `;
 
 const DataNode = styled.div`
