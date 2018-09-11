@@ -1,0 +1,43 @@
+{
+  "name": "DialogOnModalOnTooltipOnTable",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/sadnessOjisan/DialogOnModalOnTooltipOnTable.git",
+  "author": "ojisan",
+  "license": "MIT",
+  "devDependencies": {
+    "babel-core": "^6.26.3",
+    "babel-loader": "^7.1.5",
+    "babel-plugin-transform-object-rest-spread": "^6.26.0",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-react": "^6.24.1",
+    "css-loader": "^1.0.0",
+    "html-webpack-plugin": "^3.2.0",
+    "husky": "^0.14.3",
+    "lint-staged": "^7.2.2",
+    "prettier": "^1.14.2",
+    "style-loader": "^0.22.1",
+    "webpack": "^4.17.1",
+    "webpack-cli": "^3.1.0",
+    "webpack-dev-server": "^3.1.5"
+  },
+  "dependencies": {
+    "react": "^16.4.2",
+    "react-dom": "^16.4.2",
+    "styled-components": "^3.4.5"
+  },
+  "lint-staged": {
+    "*.js": [
+      "prettier ./src/**/**.js --write",
+      "git add"
+    ]
+  },
+  "scripts": {
+    "format": "prettier ./src/**/**.js --write",
+    "build:local": "REACT_APP_ENV=local webpack-dev-server --hot --inline ",
+    "build": "webpack",
+    "build:staging": "REACT_APP_ENV=staging webpack",
+    "build:production": "REACT_APP_ENV=production webpack",
+    "precommit": "lint-staged"
+  }
+}
