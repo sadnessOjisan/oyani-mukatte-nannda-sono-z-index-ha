@@ -1,8 +1,8 @@
 import React from "react";
 import styled from "styled-components";
 import Text from "./Text";
-import { css, StyleSheet } from "aphrodite/no-important";
 import { airblue } from "../constants/color";
+import zIndex from "../constants/z-index";
 
 const Modal = props => {
   const { onClose, children } = props;
@@ -25,7 +25,7 @@ const Modal = props => {
 
 const Overlay = styled.div`
   background-color: rgba(0, 0, 0, 0.6);
-  z-index: 50;
+  z-index: ${zIndex.modal};
   position: fixed;
   width: 100%;
   height: 100%;

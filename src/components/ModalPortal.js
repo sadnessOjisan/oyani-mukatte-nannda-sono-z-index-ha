@@ -2,13 +2,16 @@ import React from "react";
 import ReactDOM from "react-dom";
 import styled from "styled-components";
 import { gray, airblue } from "../constants/color";
+import zIndex from "../constants/z-index";
 
 const modalRoot = document.getElementById("modal-root");
 
 class ModalPortal extends React.Component {
   constructor(props) {
     super(props);
-    this.el = document.createElement("div");
+    const el = document.createElement("div");
+    // const styledEl = el.setAttribute("style", "position:fixed");
+    this.el = el;
   }
 
   componentDidMount() {
@@ -50,6 +53,7 @@ const BackGround = styled.div`
   align-items: center;
   top: 0;
   left: 0;
+  z-index: ${zIndex.modal};
 `;
 
 const Container = styled.div`

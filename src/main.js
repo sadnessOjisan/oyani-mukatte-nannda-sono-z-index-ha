@@ -7,6 +7,7 @@ import Tooltip from "./components/Tooltip";
 import Text from "./components/Text";
 import { lightgray } from "./constants/color";
 import Modal from "./components/ModalPortal";
+// import Modal from './components/Modal';
 import "../vendor/css/reset.css";
 
 class App extends React.Component {
@@ -26,15 +27,17 @@ class App extends React.Component {
 
   render() {
     return (
-      <Wrapper>
-        <Text size={24}>JavaScript 成績表</Text>
-        <TableViewr>
-          <Table headerNodes={this.headerItems} dataNodes={this.rowsItems} />
-        </TableViewr>
+      <React.Fragment>
+        <Wrapper>
+          <Text size={24}>JavaScript 成績表</Text>
+          <TableViewr>
+            <Table headerNodes={this.headerItems} dataNodes={this.rowsItems} />
+          </TableViewr>
+        </Wrapper>
         <Modal>
           <Text>も〜だる　ちるどれん</Text>
         </Modal>
-      </Wrapper>
+      </React.Fragment>
     );
   }
 
@@ -73,6 +76,7 @@ const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  z-index: 0;
 `;
 
 const TableViewr = styled.div`

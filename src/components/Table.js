@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import { lightgray } from "../constants/color";
+import zIndex from "../constants/z-index";
 
 const Table = props => {
   const { headerNodes, dataNodes } = props;
@@ -37,6 +38,7 @@ const TableView = styled.table`
   width: 100%;
   height: 100%;
   border-spacing: 0;
+  z-index: ${zIndex.table};
 `;
 
 const TableHeader = styled.thead`
@@ -52,8 +54,9 @@ const Th = styled.th`
   left: ${props =>
     props.isFirst && 0}px; // これがないとスクロール時に横に流れる
   z-index: ${props =>
-    props.isFirst &&
-    1}; // これがないとスクロールされる要素が上に重なり、固定しているように見えない
+    props.isFirst
+      ? 2
+      : 0}; // これがないとスクロールされる要素が上に重なり、固定しているように見えない
 `;
 
 const Td = styled.td`
