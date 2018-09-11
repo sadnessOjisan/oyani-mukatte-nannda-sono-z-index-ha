@@ -1,33 +1,58 @@
 import React from "react";
 import styled from "styled-components";
+import { lightgray } from "../constants/color";
 
 const Table = props => {
-  console.log("[Table] props: ", props);
   const { headerNodes, dataNodes } = props;
   return (
-    <table>
+    <TableView>
       {_renderHeader(headerNodes)}
       {dataNodes.map(dataNode => _renderTableRow(dataNode))}
-    </table>
+    </TableView>
   );
 };
 
 const _renderHeader = headerNodes => {
-  return headerNodes.map(node => <Th>{node}</Th>);
+  return (
+    <TableHeader>
+      {headerNodes.map(node => (
+        <Th>{node}</Th>
+      ))}
+    </TableHeader>
+  );
 };
 
 const _renderTableRow = dataNodes => {
   return (
     <tr>
-      {dataNodes.map(node => (
-        <Td>{node}</Td>
+      {dataNodes.map((node, idx) => (
+        <Td isFirst={idx === 0}>{node}</Td>
       ))}
     </tr>
   );
 };
 
-const Th = styled.th``;
+const TableView = styled.table`
+  table-layout: fixed;
+  width: 100%;
+  height: 100%;
+  border-spacing: 0;
+`;
 
-const Td = styled.td``;
+const TableHeader = styled.thead`
+  background-color: ${lightgray};
+`;
+
+const Th = styled.th`
+  width: 180px;
+  padding: 12px;
+  background-color: ${lightgray};
+`;
+
+const Td = styled.td`
+  width: 180px;
+  padding: 12px;
+  background-color: ${props => props.isFirst && lightgray};
+`;
 
 export default Table;

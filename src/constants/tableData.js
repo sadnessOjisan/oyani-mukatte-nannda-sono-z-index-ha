@@ -105,7 +105,7 @@ const favorite = {
   }
 };
 
-const favEnum = {
+export const favEnum = {
   "01": "好き",
   "02": "ちょっと好き",
   "03": "普通",
