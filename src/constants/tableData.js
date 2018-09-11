@@ -1,4 +1,6 @@
-const Frameworks = [
+const tableName = "生徒";
+
+const frameworks = [
   "React",
   "Vue",
   "Angular",
@@ -110,3 +112,7 @@ const favEnum = {
   "04": "嫌い",
   "05": "大っ嫌い"
 };
+
+const data = { tableName, frameworks, students, favorite, favEnum };
+
+export default data;
